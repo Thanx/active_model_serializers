@@ -16,12 +16,13 @@ module ActiveModel
           )
           serializer_class.new(object, options.except(:serializer))
         end
-        @meta     = options[:meta]
-        @meta_key = options[:meta_key]
+        @resource_name   = options[:resource_name]
+        @meta            = options[:meta]
+        @meta_key        = options[:meta_key]
       end
 
       def json_key
-        @objects.first.json_key if @objects.first
+        @resource_name
       end
 
       def root=(root)

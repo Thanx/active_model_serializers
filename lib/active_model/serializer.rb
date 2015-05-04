@@ -173,10 +173,10 @@ module ActiveModel
     end
 
     def json_key
-      if root == true || root.nil?
+      if root.present? || root.nil?
         self.class.root_name
       else
-        root
+        false
       end
     end
 
